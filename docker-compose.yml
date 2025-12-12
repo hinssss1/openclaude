@@ -1,0 +1,17 @@
+version: "3.9"
+services:
+  openclaude:
+    build: .
+    container_name: openclaude_auto_register
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - POOL_FILE=/data/account_pool.json
+    volumes:
+      - openclaude-data:/data
+    restart: unless-stopped
+
+volumes:
+  openclaude-data:
+
